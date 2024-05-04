@@ -13,12 +13,10 @@
 			showSideContent="false"
 			breakpointChanged="updateToggleButtonState">
 			<l:mainContent>
-				<ux:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" upperCaseAnchorBar="false">
+				<ux:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false" upperCaseAnchorBar="false">
 					<ux:headerTitle >
-						<ux:ObjectPageHeader id="headerForTest"
-										  objectTitle="{/Products(1)/Supplier/CompanyName}">
+						<ux:ObjectPageHeader id="headerForTest" objectTitle="{PD>/ProductName}">
 							<ux:sideContentButton>
-								
 							</ux:sideContentButton>
 							<ux:actions>
 							<ux:ObjectPageHeaderActionButton text="Take Action" icon="sap-icon://action" tooltip="action"/>
@@ -27,19 +25,16 @@
 					</ux:headerTitle>
 					<ux:headerContent>
 						<l:VerticalLayout>
-							
-							
-							<Label text="Product ID: {/Products(1)/ProductID}"/>
-							<Link text="Price: {/Products(1)/UnitPrice}"/>
-							
+							<Label text="Product ID: {PD>/ProductID}"/>
+							<Link text="Price: {PD>/UnitPrice}"/>
 						</l:VerticalLayout>
 						<Text width="200px"
 								text="."/>
 						<l:VerticalLayout>
-							<Label text="Discontinued: {/Suppliers(1)/Products/Discontinued}"/>
+							<Label text="Discontinued: {S>/Discontinued}"/>
 							<ProgressIndicator
-									percentValue="{/Products(1)/UnitsInStock}"
-									displayValue="{/Products(1)/UnitsInStock}%"
+									percentValue="{PD>/UnitsInStock}"
+									displayValue="{PD>/UnitsInStock}%"
 									showValue="true"
 									state="None"/>
 						</l:VerticalLayout>
@@ -48,22 +43,18 @@
 						<ux:ObjectPageSection titleUppercase="false" title="Supplier info.">
 							<ux:subSections>
 								<ux:ObjectPageSubSection titleUppercase="false">
-								<Text text="Address: {/Products(1)/Supplier/Address}" textAlign="Center"/>
-								<Text text= " City: {/Products(1)/Supplier/City}" textAlign="Center"/>
-								<Text text= "Country: {/Products(1)/Supplier/Country}" textAlign="Center"/>
-								<Text text= "Postal code: {/Products(1)/Supplier/PostalCode}" textAlign="Center"/>
-
+								<Text text="Address: {S>/Address}" textAlign="Center"/>
+								<Text text= " City: {S>/City}" textAlign="Center"/>
+								<Text text= "Country: {S>/Country}" textAlign="Center"/>
+								<Text text= "Postal code: {S>/PostalCode}" textAlign="Center"/>
 								</ux:ObjectPageSubSection>
 							</ux:subSections>
 						</ux:ObjectPageSection>
-
 						<ux:ObjectPageSection titleUppercase="false" title="Comments">
 							<ux:subSections>
 								<ux:ObjectPageSubSection title="" titleUppercase="false">
 							    <FeedInput post="onPost" showIcon="true" />
 								</ux:ObjectPageSubSection>
-
-								
 							</ux:subSections>
 						</ux:ObjectPageSection>
 					</ux:sections>
